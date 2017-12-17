@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BehaviourEngine
 {
-    public sealed class Time
+    public static class Time
     {
         public static float DeltaTime => Engine.Pause ? DeltaPause : Engine.Window.deltaTime;
         public static float DeltaPause => Engine.Window.deltaTime * 0;

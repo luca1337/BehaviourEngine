@@ -53,9 +53,7 @@ C:\Users\nb37\Desktop\New\BehaviourEngine\obj\Debug\BehaviourEngine.pdb
 C:\Users\nb37\Documents\GitHub\BehaviourEngine\bin\Debug\BehaviourEngine.dll.config
 C:\Users\nb37\Documents\GitHub\BehaviourEngine\bin\Debug\BehaviourEngine.dll
 C:\Users\nb37\Documents\GitHub\BehaviourEngine\bin\Debug\BehaviourEngine.pdb
-C:\Users\nb37\Documents\GitHub\BehaviourEngine\bin\Debug\NVorbis.xml
-C:\Users\nb37\Documents\GitHub\BehaviourEngine\bin\Debug\OpenTK.xml
-C:\Users\nb37\Documents\GitHub\BehaviourEngine\obj\Debug\BehaviourEngine.csprojResolveAssemblyReference.cache
 C:\Users\nb37\Documents\GitHub\BehaviourEngine\obj\Debug\BehaviourEngine.csproj.CoreCompileInputs.cache
 C:\Users\nb37\Documents\GitHub\BehaviourEngine\obj\Debug\BehaviourEngine.dll
 C:\Users\nb37\Documents\GitHub\BehaviourEngine\obj\Debug\BehaviourEngine.pdb
+C:\Users\nb37\Documents\GitHub\BehaviourEngine\obj\Debug\BehaviourEngine.csprojResolveAssemblyReference.cache

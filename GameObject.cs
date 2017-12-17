@@ -49,9 +49,6 @@ namespace BehaviourEngine
             {
                 Behaviour b = behaviours[i];
 
-                if (b == null)
-                    return;
-
                 if (!b.Enabled)
                     continue;
 
@@ -78,9 +75,6 @@ namespace BehaviourEngine
             for (int i = 0; i < behaviours.Count; i++)
             {
                 Behaviour b = behaviours[i];
-
-                if (b == null)
-                    return;
 
                 if (!b.Enabled)
                     continue;

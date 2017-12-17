@@ -46,9 +46,8 @@ namespace BehaviourEngine
             Window = new Window(width, height, title);
             Window.SetClearColor(0f, 0.7f, 0f);
             Window.SetDefaultOrthographicSize(orthoSize);
+            Window.SetVSync(false);
         }
-
-        public static bool IsOutOfScreen(Vector2 position) => position.X > Window.Width || position.X < 0 || position.Y > Window.Height || position.Y < 0;
 
         public static GameObject Spawn(GameObject gameObject)
         {
@@ -59,12 +58,8 @@ namespace BehaviourEngine
         public static bool PauseGame()
         {
             if (!Pause)
-            {
-                Pause = true;
-                return Pause;
-            }
-            Pause = false;
-            return Pause;
+                return Pause = true;
+            return Pause = false;
         }
 
         public static void AddPhysicalObject(IPhysical obj)
@@ -144,24 +139,20 @@ namespace BehaviourEngine
             {
                 Input.Update(Window);
 
-                if (Input.IsKeyDown(KeyCode.Esc))
-                    PauseGame();
-
                 DoLazyRegistration();
 
                 DoSorting();
 
-                for (int i = 0; i < gameObjects.Count; i++)
-                    if (gameObjects[i].Active)
-                        gameObjects[i].Update();
+                gameObjects.ForEach(x =>
+                {
+                    if (x.Active)
+                    {
+                        x.Draw();
+                        x.Update();
+                    }
+                });
 
                 CheckCollision();
-
-                for (int i = 0; i < gameObjects.Count; i++)
-                {
-                    if (gameObjects[i].Active)
-                        gameObjects[i].Draw();
-                }
 
                 Window.Update();
             }

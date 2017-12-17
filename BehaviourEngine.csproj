@@ -92,10 +92,10 @@
     <Compile Include="Renderer\TextMesh.cs" />
     <Compile Include="Renderer\Tile.cs" />
     <Compile Include="Physics\RigidBody.cs" />
-    <Compile Include="TextureManager.cs" />
     <Compile Include="Time.cs" />
     <Compile Include="Timer.cs" />
     <Compile Include="Transform.cs" />
+    <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Config\App.config" />

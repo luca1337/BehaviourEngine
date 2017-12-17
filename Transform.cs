@@ -16,17 +16,17 @@ namespace BehaviourEngine
         {
             get
             {
-                //deg
                 return Rotation.RadToDeg();
             }
             set
             {
-                //rad
                 Rotation = value.DegToRad();
             }
         }
         public Vector2 Scale = Vector2.One;
 
-        public Transform(GameObject owner) : base(owner) { }
+        public Transform(GameObject owner) : base(owner)
+        {
+        }
     }
 }

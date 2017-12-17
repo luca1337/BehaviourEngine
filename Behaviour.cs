@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BehaviourEngine
 {
-    public class Behaviour
+    public abstract class Behaviour
     {
         public bool Enabled;
         public GameObject Owner { get; protected set; }
