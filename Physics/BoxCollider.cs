@@ -4,7 +4,7 @@ using BehaviourEngine.Interfaces;
 
 namespace BehaviourEngine
 {
-    public class Box2D : Behaviour, IDrawable
+    public class BoxCollider : Behaviour, IDrawable
     {
         public Vector2 Position { get { return mesh.position; } set { mesh.position = value; } }
         public float Width { get; private set; }
@@ -16,7 +16,7 @@ namespace BehaviourEngine
 
         private Mesh mesh;
 
-        public Box2D(Vector2 position, float width, float height, GameObject owner) : base(owner)
+        public BoxCollider(Vector2 position, float width, float height, GameObject owner) : base(owner)
         {
             this.Width = width;
             this.Height = height;

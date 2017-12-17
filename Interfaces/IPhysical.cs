@@ -8,7 +8,7 @@ namespace BehaviourEngine.Interfaces
 {
     public interface IPhysical
     {
-        Box2D BoxCollider { get; set; }
+        BoxCollider BoxCollider { get; set; }
         void OnIntersect(IPhysical other);
     }
 }

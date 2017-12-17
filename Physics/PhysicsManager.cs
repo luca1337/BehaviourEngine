@@ -9,7 +9,7 @@ namespace BehaviourEngine
 {
     public static class PhysicsManager
     {
-        public static bool Intersect(Box2D a, Box2D b)
+        public static bool Intersect(BoxCollider a, BoxCollider b)
         {
             if (a != null && b != null)
             {
@@ -26,7 +26,7 @@ namespace BehaviourEngine
             return false;
         }
 
-        public static HitState OnAABB(Box2D a, Box2D b)
+        public static HitState OnAABB(BoxCollider a, BoxCollider b)
         {
             HitState hitState = new HitState();
 

@@ -65,7 +65,7 @@
   <ItemGroup>
     <Compile Include="AudioManager.cs" />
     <Compile Include="Behaviour.cs" />
-    <Compile Include="Box2D.cs" />
+    <Compile Include="Physics\BoxCollider.cs" />
     <Compile Include="CameraManager.cs" />
     <Compile Include="ConsoleUI.cs" />
     <Compile Include="Engine.cs" />
@@ -84,14 +84,14 @@
     <Compile Include="Interfaces\IUpdatable.cs" />
     <Compile Include="Pathfinding\Node.cs" />
     <Compile Include="ObjectPooling.cs" />
-    <Compile Include="PhysicsManager.cs" />
+    <Compile Include="Physics\PhysicsManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RandomManager.cs" />
     <Compile Include="Renderer\AnimationRenderer.cs" />
     <Compile Include="Renderer\SpriteRenderer.cs" />
     <Compile Include="Renderer\TextMesh.cs" />
     <Compile Include="Renderer\Tile.cs" />
-    <Compile Include="RigidBody.cs" />
+    <Compile Include="Physics\RigidBody.cs" />
     <Compile Include="TextureManager.cs" />
     <Compile Include="Time.cs" />
     <Compile Include="Timer.cs" />

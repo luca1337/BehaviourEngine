@@ -20,14 +20,14 @@ namespace BehaviourEngine.Renderer
             }
         }
 
-        public Box2D BoxCollider { get; set; }
+        public BoxCollider BoxCollider { get; set; }
 
         public Tile(Vector2 position) : base((int)RenderLayer.Level, "Wall")
         {
             sprite       = new Sprite(1, 1);
             Position     = position;
-            BoxCollider  = new Box2D(position, 1, 1, this);
-            AddBehaviour<Box2D>(BoxCollider);
+            BoxCollider  = new BoxCollider(position, 1, 1, this);
+            AddBehaviour<BoxCollider>(BoxCollider);
         }
 
         public void OnIntersect(IPhysical other)
