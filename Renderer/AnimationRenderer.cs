@@ -51,7 +51,7 @@ namespace BomberMan
 
             if(UpdatePosition)
             {
-                tile.scale = Owner.Transform.Scale;
+                tile.scale    = Owner.Transform.Scale;
                 tile.position = Owner.Transform.Position;
                 tile.Rotation = Owner.Transform.Rotation;
             }

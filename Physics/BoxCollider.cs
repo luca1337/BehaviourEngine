@@ -1,12 +1,15 @@
 ﻿using OpenTK;
 using Aiv.Fast2D;
 using BehaviourEngine.Interfaces;
+using System;
 
 namespace BehaviourEngine
 {
-    public class BoxCollider : Behaviour, IDrawable
+    public class BoxCollider : Behaviour, IDrawable , IUpdatable
     {
         public Vector2 Position { get { return mesh.position; } set { mesh.position = value; } }
+
+        public Vector2 Offset;
         public float Width { get; private set; }
         public float Height { get; private set; }
         public Vector2 Center { get { return Position + Half; } }
@@ -16,29 +19,34 @@ namespace BehaviourEngine
 
         private Mesh mesh;
 
-        public BoxCollider(Vector2 position, float width, float height, GameObject owner) : base(owner)
+        public BoxCollider(float width, float height, GameObject owner) : base(owner)
         {
-            this.Width = width;
+            this.Width  = width;
             this.Height = height;
 
-            this.mesh = new Mesh();
+            this.mesh   = new Mesh();
             this.mesh.v = new float[]
             {
-                position.X, position.Y,
-                position.X + width, position.Y,
-                position.X, position.Y + height,
-                position.X + width, position.Y,
-                position.X, position.Y + height,
-                position.X + width, position.Y + height
+                owner.Transform.Position.X, owner.Transform.Position.Y,
+                owner.Transform.Position.X + width, owner.Transform.Position.Y,
+                owner.Transform.Position.X, owner.Transform.Position.Y + height,
+                owner.Transform.Position.X + width, owner.Transform.Position.Y,
+                owner.Transform.Position.X, owner.Transform.Position.Y + height,
+                owner.Transform.Position.X + width, owner.Transform.Position.Y + height
             };
-            mesh.pivot = position;
-            mesh.position = position;
+            mesh.pivot    = owner.Transform.Position;
+            mesh.position = owner.Transform.Position;
             mesh.Update();
         }
 
         public void Draw()
         {
             mesh.DrawWireframe(1f, 0f, 0f);
+        }
+
+        public void Update()
+        {
+            this.Position = Owner.Transform.Position + Offset;
         }
     }
 }

@@ -45,7 +45,7 @@ namespace BehaviourEngine
 
         public SpriteRenderer(string fileName, GameObject owner) : base(owner)
         {
-            sprite = new Sprite(1, 1);
+            sprite  = new Sprite(1, 1);
             texture = FlyWeight.Get(fileName);
         }
 
@@ -85,6 +85,7 @@ namespace BehaviourEngine
 
         public void Update()
         {
+            sprite.position = Owner.Transform.Position;
         }
     }
 }

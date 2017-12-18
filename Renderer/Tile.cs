@@ -7,26 +7,14 @@ namespace BehaviourEngine.Renderer
 {
     public class Tile : GameObject, IPhysical
     {
-        private Sprite sprite;
-        public Vector2 Position
-        {
-            get
-            {
-                return sprite.position;
-            }
-            set
-            {
-                sprite.position = value;
-            }
-        }
-
         public BoxCollider BoxCollider { get; set; }
-
-        public Tile(Vector2 position) : base((int)RenderLayer.Level, "Wall")
+        private SpriteRenderer renderer;
+        public Tile(string fileName) : base((int)RenderLayer.Level, "Wall")
         {
-            sprite       = new Sprite(1, 1);
-            Position     = position;
-            BoxCollider  = new BoxCollider(position, 1, 1, this);
+            renderer     = new SpriteRenderer(fileName, this);
+            BoxCollider  = new BoxCollider(renderer.Width, renderer.Height, this);
+
+            AddBehaviour<SpriteRenderer>(renderer);
             AddBehaviour<BoxCollider>(BoxCollider);
         }
 
