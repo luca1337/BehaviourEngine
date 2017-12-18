@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="AudioManager.cs" />
     <Compile Include="Behaviour.cs" />
+    <Compile Include="Generator.cs" />
     <Compile Include="Physics\BoxCollider.cs" />
     <Compile Include="CameraManager.cs" />
     <Compile Include="ConsoleUI.cs" />
