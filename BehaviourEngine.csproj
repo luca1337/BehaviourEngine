@@ -36,22 +36,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="aiv-fast2d, Version=1.0.6336.29264, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>BomberMan\packages\Aiv.Fast2D.0.13.0\lib\net40\aiv-fast2d.dll</HintPath>
+      <HintPath>..\BomberMan\packages\Aiv.Fast2D.0.13.0\lib\net40\aiv-fast2d.dll</HintPath>
     </Reference>
     <Reference Include="aiv-fast2d-utils-input">
       <HintPath>..\bubbleGhost\BehaviourEngine.Test\bin\Debug\aiv-fast2d-utils-input.dll</HintPath>
     </Reference>
     <Reference Include="aiv-fast2d-utils-texturehelper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>BomberMan\packages\TextureHelper.1.1.0\lib\net45\aiv-fast2d-utils-texturehelper.dll</HintPath>
+      <HintPath>..\BomberMan\packages\TextureHelper.1.1.0\lib\net45\aiv-fast2d-utils-texturehelper.dll</HintPath>
     </Reference>
     <Reference Include="aiv-vorbis, Version=1.0.6195.38242, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>BomberMan\packages\Aiv.Vorbis.0.3.0\lib\net40\aiv-vorbis.dll</HintPath>
+      <HintPath>..\BomberMan\packages\Aiv.Vorbis.0.3.0\lib\net40\aiv-vorbis.dll</HintPath>
     </Reference>
     <Reference Include="NVorbis, Version=0.8.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>BomberMan\packages\NVorbis.0.8.5.0\lib\NVorbis.dll</HintPath>
+      <HintPath>..\BomberMan\packages\NVorbis.0.8.5.0\lib\NVorbis.dll</HintPath>
     </Reference>
     <Reference Include="OpenTK, Version=2.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
-      <HintPath>BomberMan\packages\OpenTK.2.0.0\lib\net20\OpenTK.dll</HintPath>
+      <HintPath>..\BomberMan\packages\OpenTK.2.0.0\lib\net20\OpenTK.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -102,7 +102,11 @@
     <None Include="Config\App.config" />
     <None Include="Config\OpenTK.dll.config" />
     <None Include="Config\packages.config" />
+    <None Include="OpenTK.dll.config" />
+    <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
