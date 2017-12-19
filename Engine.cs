@@ -28,17 +28,18 @@ namespace BehaviourEngine
         public const string LevelPath = "Levels";
         public const string SoundPath = "Sounds";
         public static bool Pause;
+        public static List<IPhysical> PhysicalObjects => physicalObjects;
 
         //Private
         private static List<GameObject> gameObjects;
         private static Queue<GameObject> waitForSpawnObjs;
-        private static List<IPhysical> PhysicalObjects;
+        private static List<IPhysical> physicalObjects;
 
         static Engine()
         {
             gameObjects         = new List<GameObject>();
             waitForSpawnObjs    = new Queue<GameObject>();
-            PhysicalObjects     = new List<IPhysical>();
+            physicalObjects     = new List<IPhysical>();
         }
 
         public static void Init(int width, int height, string title, float orthoSize = 0.0f)
@@ -64,7 +65,7 @@ namespace BehaviourEngine
 
         public static void AddPhysicalObject(IPhysical obj)
         {
-            PhysicalObjects.Add(obj);
+            physicalObjects.Add(obj);
         }
 
         public static void Destroy<T>(T gameObject) where T : GameObject
@@ -112,14 +113,14 @@ namespace BehaviourEngine
 
         private static void CheckCollision()
         {
-            for (int i = 0; i < PhysicalObjects.Count - 1; i++)
+            for (int i = 0; i < physicalObjects.Count - 1; i++)
             {
-                IPhysical physical1 = PhysicalObjects[i];
+                IPhysical physical1 = physicalObjects[i];
                 if (physical1 != null)
                 {
-                    for (int j = i + 1; j < PhysicalObjects.Count; j++)
+                    for (int j = i + 1; j < physicalObjects.Count; j++)
                     {
-                        IPhysical physical2 = PhysicalObjects[j];
+                        IPhysical physical2 = physicalObjects[j];
                         if (physical2 != null)
                         {
                             if (PhysicsManager.Intersect(physical1.BoxCollider, physical2.BoxCollider))
@@ -152,7 +153,7 @@ namespace BehaviourEngine
                     }
                 });
 
-                CheckCollision();
+           //     CheckCollision();
 
                 Window.Update();
             }
