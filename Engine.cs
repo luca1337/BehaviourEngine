@@ -153,7 +153,7 @@ namespace BehaviourEngine
                     }
                 });
 
-           //     CheckCollision();
+                CheckCollision();
 
                 Window.Update();
             }
