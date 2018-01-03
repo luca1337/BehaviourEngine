@@ -16,6 +16,18 @@ namespace BehaviourEngine
             if(a != null && b != null)
             return (a.Position.X < b.Position.X + b.Width && a.Position.X + a.Width > b.Position.X &&
                 a.Position.Y < b.Position.Y + b.Height && a.Position.Y + a.Height > b.Position.Y);
+            if (a != null && b != null)
+            {
+                if (
+                    a.Position.X - a.Width * 0.5f < b.Position.X + b.Width * 0.5f &&
+                    a.Position.X + a.Width * 0.5f > b.Position.X - b.Width * 0.5f &&
+                    a.Position.Y - a.Height *0.5f < b.Position.Y + b.Height * 0.5f &&
+                    a.Position.Y + a.Height *0.5f > b.Position.Y - b.Height * 0.5f
+                    )
+                {
+                    return true;
+                }
+            }
             return false;
 
         }
