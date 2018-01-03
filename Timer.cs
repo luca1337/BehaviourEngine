@@ -28,12 +28,9 @@ public class Timer
 
     public bool IsOver()
     {
-        if (currentTime > timeLimit)
-        {
-            return true;
-        }
-        return false;
+        return currentTime > timeLimit;
     }
+
     public void Stop()
     {
         currentTime = 0f;

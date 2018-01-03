@@ -102,8 +102,6 @@
     <None Include="Config\App.config" />
     <None Include="Config\OpenTK.dll.config" />
     <None Include="Config\packages.config" />
-    <None Include="OpenTK.dll.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

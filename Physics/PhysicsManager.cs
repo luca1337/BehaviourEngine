@@ -9,21 +9,15 @@ namespace BehaviourEngine
 {
     public static class PhysicsManager
     {
+        private static bool isTriggerComplete;
+
         public static bool Intersect(BoxCollider a, BoxCollider b)
         {
-            if (a != null && b != null)
-            {
-                if (
-                    a.Position.X < b.Position.X + b.Width &&
-                    a.Position.X + a.Width > b.Position.X &&
-                    a.Position.Y < b.Position.Y + b.Height &&
-                    a.Position.Y + a.Height > b.Position.Y
-                    )
-                {
-                    return true;
-                }
-            }
+            if(a != null && b != null)
+            return (a.Position.X < b.Position.X + b.Width && a.Position.X + a.Width > b.Position.X &&
+                a.Position.Y < b.Position.Y + b.Height && a.Position.Y + a.Height > b.Position.Y);
             return false;
+
         }
 
         public static HitState OnAABB(BoxCollider a, BoxCollider b)

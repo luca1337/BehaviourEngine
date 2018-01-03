@@ -12,17 +12,26 @@ namespace BehaviourEngine.Renderer
         public Tile(string fileName) : base((int)RenderLayer.Level, "Wall")
         {
             renderer     = new SpriteRenderer(fileName, this);
-            BoxCollider  = new BoxCollider(renderer.Width, renderer.Height, this);
+            //BoxCollider  = new BoxCollider(renderer.Width, renderer.Height, this);
+            //BoxCollider.IsTrigger = true;
 
             AddBehaviour<SpriteRenderer>(renderer);
-            AddBehaviour<BoxCollider>(BoxCollider);
+            //AddBehaviour<BoxCollider>(BoxCollider);
         }
 
         public void OnIntersect(IPhysical other)
         {
             if (other is Tile)
                 return;
-            Console.WriteLine(this.ToString() + "Collided with:" + other.ToString());
+            //Console.WriteLine(this.ToString() + "Collided with:" + other.ToString());
+        }
+
+        public void OnTriggerEnter(IPhysical other)
+        {
+            if (other is Tile)
+                return;
+
+            Console.WriteLine("wall");
         }
     }
 }

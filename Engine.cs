@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Remoting.Messaging;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Aiv.Fast2D;
 using Aiv.Fast2D.Utils.Input;
 using BehaviourEngine.Interfaces;
-using OpenTK;
 
 namespace BehaviourEngine
 {
@@ -125,8 +119,17 @@ namespace BehaviourEngine
                         {
                             if (PhysicsManager.Intersect(physical1.BoxCollider, physical2.BoxCollider))
                             {
-                                physical1.OnIntersect(physical2);
-                                physical2.OnIntersect(physical1);
+                                if(!physical1.BoxCollider.IsTrigger || !physical2.BoxCollider.IsTrigger)
+                                {
+                                    physical1.OnIntersect(physical2);
+                                    physical2.OnIntersect(physical1);
+                                }
+                                else
+                                {
+                                    physical1.OnTriggerEnter(physical2);
+                                    physical1.OnTriggerEnter(physical1);
+                                    break;
+                                }
                             }
                         }
                     }
@@ -153,7 +156,7 @@ namespace BehaviourEngine
                     }
                 });
 
-           //     CheckCollision();
+                CheckCollision();
 
                 Window.Update();
             }

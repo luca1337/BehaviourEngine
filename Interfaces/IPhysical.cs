@@ -10,5 +10,6 @@ namespace BehaviourEngine.Interfaces
     {
         BoxCollider BoxCollider { get; set; }
         void OnIntersect(IPhysical other);
+        void OnTriggerEnter(IPhysical other);
     }
 }

@@ -53,7 +53,7 @@ namespace BehaviourEngine
         {
             try
             {
-                sprite.DrawTexture(texture);
+                sprite.DrawTexture(texture, 0, 0);
             }
 
             catch (NullReferenceException)
