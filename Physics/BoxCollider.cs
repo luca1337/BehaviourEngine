@@ -19,6 +19,7 @@ namespace BehaviourEngine
 
         private Mesh mesh;
 
+        //Added
         public bool IsTrigger { get; set; }
 
         public BoxCollider(float width, float height, GameObject owner) : base(owner)
