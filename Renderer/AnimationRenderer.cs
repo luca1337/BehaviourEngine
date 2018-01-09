@@ -83,5 +83,11 @@ namespace BomberMan
                 index        = 0;
             }
         }
+
+        public void Reset()
+        {
+            this.currentIndex = 0;
+            index = 0;
+        }
     }
 }
