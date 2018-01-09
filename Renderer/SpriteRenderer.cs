@@ -49,6 +49,10 @@ namespace BehaviourEngine
             texture = FlyWeight.Get(fileName);
         }
 
+        public void SetTexture(string fileName)
+        {
+            texture = FlyWeight.Get(fileName);
+        }
         public void Draw()
         {
             try
