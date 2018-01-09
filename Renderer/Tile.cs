@@ -9,8 +9,9 @@ namespace BehaviourEngine.Renderer
     {
         public BoxCollider BoxCollider { get; set; }
         private SpriteRenderer renderer;
-        public Tile(string fileName) : base((int)RenderLayer.Level, "Wall")
+        public Tile(string fileName, Vector2 position) : base((int)RenderLayer.Level, "Wall")
         {
+            Transform.Position = position;
             renderer     = new SpriteRenderer(fileName, this);
             BoxCollider  = new BoxCollider(renderer.Width, renderer.Height, this);
 

@@ -5,7 +5,7 @@ using System;
 
 namespace BehaviourEngine
 {
-    public class BoxCollider : Behaviour, IDrawable , IUpdatable
+    public class BoxCollider : Behaviour, IDrawable /*, IUpdatable*/
     {
         public Vector2 Position { get { return mesh.position; } set { mesh.position = value; } }
 
@@ -26,7 +26,6 @@ namespace BehaviourEngine
         {
             this.Width  = width;
             this.Height = height;
-
             this.mesh   = new Mesh();
             this.mesh.v = new float[]
             {
@@ -39,6 +38,7 @@ namespace BehaviourEngine
             };
             mesh.pivot    = owner.Transform.Position;
             mesh.position = owner.Transform.Position;
+            this.Position = Owner.Transform.Position + Offset;
             mesh.Update();
         }
 
@@ -47,9 +47,9 @@ namespace BehaviourEngine
             mesh.DrawWireframe(1f, 0f, 0f);
         }
 
-        public void Update()
-        {
-            this.Position = Owner.Transform.Position + Offset;
-        }
+        //public void Update()
+        //{
+        //    this.Position = Owner.Transform.Position + Offset;
+        //}
     }
 }
