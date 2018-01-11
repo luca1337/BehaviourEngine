@@ -13,7 +13,7 @@ namespace BehaviourEngine
 
         public static bool Intersect(BoxCollider a, BoxCollider b)
         {
-            if (a != null && b != null)
+            if (a != null && b != null && a.Enabled && b.Enabled)
             {
                 if (
                     a.Position.X  < b.Position.X + b.Width &&
