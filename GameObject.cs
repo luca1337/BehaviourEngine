@@ -14,6 +14,14 @@ namespace BehaviourEngine
         public GameObject   Parent          { get; set; }
         public string       Name            { get; }
         public int          RenderOffset    { get; }
+        public List<Behaviour> Behaviours
+        {
+            get
+            {
+                return behaviours;
+            }
+
+        }
 
         public GameObject( int RenderOffset, string name = default( string ) )
         {
