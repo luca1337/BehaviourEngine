@@ -12,7 +12,10 @@ namespace BehaviourEngine
     {
         SOUND_MENU,
         SOUND_BACKGROUND,
-        SOUND_EXPLOSION_BUBBLE
+        SOUND_EXPLOSION,
+        SOUND_WALK,
+        SOUND_DROP,
+        SOUND_DIE
     }
 
     public static class AudioManager
