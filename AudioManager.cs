@@ -13,7 +13,8 @@ namespace BehaviourEngine
         SOUND_MENU,
         SOUND_BACKGROUND,
         SOUND_EXPLOSION,
-        SOUND_WALK,
+        SOUND_WALK_SLOW,
+        SOUND_WALK_FAST,
         SOUND_DROP,
         SOUND_DIE
     }
