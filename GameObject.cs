@@ -53,27 +53,30 @@ namespace BehaviourEngine
 
         public void Update()
         {
-            for (int i = 0; i < behaviours.Count; i++)
+            if (Active)
             {
-                Behaviour b = behaviours[i];
-
-                if (!b.Enabled)
-                    continue;
-
-                if (b is IStartable)
+                for (int i = 0; i < behaviours.Count; i++)
                 {
-                    IStartable startable = b as IStartable;
-                    if (!startable.IsStarted)
+                    Behaviour b = behaviours[i];
+
+                    if (!b.Enabled)
+                        continue;
+
+                    if (b is IStartable)
                     {
-                        startable.Start();
-                        startable.IsStarted = true;
+                        IStartable startable = b as IStartable;
+                        if (!startable.IsStarted)
+                        {
+                            startable.Start();
+                            startable.IsStarted = true;
+                        }
                     }
-                }
 
-                if (b is IUpdatable)
-                {
-                    IUpdatable updatable = b as IUpdatable;
-                    updatable.Update();
+                    if (b is IUpdatable)
+                    {
+                        IUpdatable updatable = b as IUpdatable;
+                        updatable.Update();
+                    }
                 }
             }
         }
