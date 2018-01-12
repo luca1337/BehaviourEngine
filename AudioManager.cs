@@ -16,7 +16,8 @@ namespace BehaviourEngine
         SOUND_WALK_SLOW,
         SOUND_WALK_FAST,
         SOUND_DROP,
-        SOUND_DIE
+        SOUND_DIE,
+        SOUND_PICKUP
     }
 
     public static class AudioManager

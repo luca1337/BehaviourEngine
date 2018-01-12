@@ -46,10 +46,5 @@ namespace BehaviourEngine
         {
             mesh.DrawWireframe(1f, 0f, 0f);
         }
-
-        //public void Update()
-        //{
-        //    this.Position = Owner.Transform.Position + Offset;
-        //}
     }
 }
