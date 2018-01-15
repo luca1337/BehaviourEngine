@@ -119,8 +119,8 @@ namespace BehaviourEngine
                         {
                             if (PhysicsManager.Intersect(physical1.BoxCollider, physical2.BoxCollider))
                             {
-                                    physical1.OnIntersect(physical2);
-                                    physical2.OnIntersect(physical1);
+                                physical1.OnIntersect(physical2);
+                                physical2.OnIntersect(physical1);
                             }
                         }
                     }

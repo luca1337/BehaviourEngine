@@ -44,7 +44,7 @@ namespace BehaviourEngine
 
         public void Draw()
         {
-            mesh.DrawWireframe(1f, 0f, 0f);
+            //mesh.DrawWireframe(1f, 0f, 0f);
         }
     }
 }
