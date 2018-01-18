@@ -27,7 +27,7 @@ namespace BomberMan
         private int         currentIndex;
         private int         index;
 
-        public AnimationRenderer(GameObject owner, Texture spriteSheet, int width, int height,int tilesPerRow,int[] keyFrames, float frameLenght, Vector2 position, bool show, bool stop, Vector2 scale = default(Vector2)) : base(owner)
+        public AnimationRenderer(GameObject owner, Texture spriteSheet, int width, int height, int tilesPerRow,int[] keyFrames, float frameLenght, Vector2 position, bool show, bool stop, Vector2 scale = default(Vector2)) : base(owner)
         {
             tile                = new Sprite(1f, 1f);
             tile.position       = position;

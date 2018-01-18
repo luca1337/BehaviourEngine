@@ -36,10 +36,10 @@ namespace BehaviourEngine
             physicalObjects     = new List<IPhysical>();
         }
 
-        public static void Init(int width, int height, string title, float orthoSize = 0.0f)
+        public static void CreateContext(int width, int height, string title, float orthoSize = 0.0f, float r = 0f, float g = 0f, float b = 0f)
         {
             Window = new Window(width, height, title);
-            Window.SetClearColor(0f, 0.7f, 0f);
+            Window.SetClearColor(r, g, b);
             Window.SetDefaultOrthographicSize(orthoSize);
             Window.SetVSync(false);
         }
