@@ -9,7 +9,7 @@ namespace BehaviourEngine.Renderer
     {
         public BoxCollider BoxCollider { get; set; }
         private SpriteRenderer renderer;
-        public Tile(string fileName, Vector2 position) : base((int)RenderLayer.Level, "Wall")
+        public Tile(string fileName, Vector2 position) : base((int)RenderLayer.Level, "second", "Tile")
         {
             Transform.Position = position;
             renderer     = new SpriteRenderer(fileName, this);

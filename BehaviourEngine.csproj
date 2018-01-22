@@ -66,6 +66,7 @@
     <Compile Include="AudioManager.cs" />
     <Compile Include="Behaviour.cs" />
     <Compile Include="Generator.cs" />
+    <Compile Include="MainCamera.cs" />
     <Compile Include="Physics\BoxCollider.cs" />
     <Compile Include="CameraManager.cs" />
     <Compile Include="ConsoleUI.cs" />
@@ -93,6 +94,9 @@
     <Compile Include="Renderer\TextMesh.cs" />
     <Compile Include="Renderer\Tile.cs" />
     <Compile Include="Physics\RigidBody.cs" />
+    <Compile Include="Scene.cs" />
+    <Compile Include="SceneManager.cs" />
+    <Compile Include="SceneType.cs" />
     <Compile Include="Time.cs" />
     <Compile Include="Timer.cs" />
     <Compile Include="Transform.cs" />

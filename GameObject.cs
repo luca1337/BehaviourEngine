@@ -14,6 +14,7 @@ namespace BehaviourEngine
         public GameObject   Parent          { get; set; }
         public string       Name            { get; }
         public int          RenderOffset    { get; }
+        public static Scene        currentScene    { get; set; }
         public List<Behaviour> Behaviours
         {
             get
@@ -23,14 +24,15 @@ namespace BehaviourEngine
 
         }
 
-        public GameObject( int RenderOffset, string name = default( string ) )
+        public GameObject( int RenderOffset, string sceneName, string name )
         {
             this.RenderOffset   = RenderOffset;
             this.Name           = name;
             behaviours          = new List<Behaviour>();
             Transform           = new Transform(this);
-            behaviours.Add(Transform);
             Active              = true;
+            behaviours.Add(Transform);
+            SceneManager.GetScene(sceneName).AssignToScene(this);
         }
 
         public bool Active;
@@ -51,51 +53,9 @@ namespace BehaviourEngine
             return behaviours.OfType<T>().FirstOrDefault();
         }
 
-        public void Update()
+        public static void UpdateScene()
         {
-            if (Active)
-            {
-                for (int i = 0; i < behaviours.Count; i++)
-                {
-                    Behaviour b = behaviours[i];
-
-                    if (!b.Enabled)
-                        continue;
-
-                    if (b is IStartable)
-                    {
-                        IStartable startable = b as IStartable;
-                        if (!startable.IsStarted)
-                        {
-                            startable.Start();
-                            startable.IsStarted = true;
-                        }
-                    }
-
-                    if (b is IUpdatable)
-                    {
-                        IUpdatable updatable = b as IUpdatable;
-                        updatable.Update();
-                    }
-                }
-            }
-        }
-
-        public void Draw()
-        {
-            for (int i = 0; i < behaviours.Count; i++)
-            {
-                Behaviour b = behaviours[i];
-
-                if (!b.Enabled)
-                    continue;
-
-                if (b is IDrawable)
-                {
-                    IDrawable drawable = b as IDrawable;
-                    drawable.Draw();
-                }
-            }
+            currentScene.Update();
         }
 
         public override string ToString( ) => $" { Name } ";

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Aiv.Fast2D;
 using Aiv.Fast2D.Utils.Input;
 using BehaviourEngine.Interfaces;
@@ -25,13 +26,11 @@ namespace BehaviourEngine
         public static List<IPhysical> PhysicalObjects => physicalObjects;
 
         //Private
-        private static List<GameObject> gameObjects;
         private static Queue<GameObject> waitForSpawnObjs;
         private static List<IPhysical> physicalObjects;
 
         static Engine()
         {
-            gameObjects         = new List<GameObject>();
             waitForSpawnObjs    = new Queue<GameObject>();
             physicalObjects     = new List<IPhysical>();
         }
@@ -65,8 +64,8 @@ namespace BehaviourEngine
         public static void Destroy<T>(T gameObject) where T : GameObject
         {
             GameObject hG = gameObject as GameObject;
-            if (gameObjects.Count <= 0) return;
-            gameObjects.Remove(hG);
+            if (GameObject.currentScene.GetGameObjectsRootList().Count <= 0) return;
+            GameObject.currentScene.GetGameObjectsRootList().Remove(hG);
         }
 
         private static void Sort(List<GameObject> drawableObjects)
@@ -91,7 +90,7 @@ namespace BehaviourEngine
 
         private static void DoSorting()
         {
-            Sort(gameObjects);
+            Sort(GameObject.currentScene.GetGameObjectsRootList());
         }
 
         private static void DoLazyRegistration()
@@ -100,7 +99,7 @@ namespace BehaviourEngine
             {
                 for (int i = 0; i < waitForSpawnObjs.Count; i++)
                 {
-                    gameObjects.Add(waitForSpawnObjs.Dequeue());
+                    GameObject.currentScene.GetGameObjectsRootList().Add(waitForSpawnObjs.Dequeue());
                 }
             }
         }
@@ -138,19 +137,18 @@ namespace BehaviourEngine
 
                 DoSorting();
 
-                gameObjects.ForEach(x =>
-                {
-                    if (x.Active)
-                    {
-                        x.Draw();
-                        x.Update();
-                    }
-                });
+                //update current assigned gameObject scene
+                GameObject.UpdateScene();
 
                 CheckCollision();
 
                 Window.Update();
             }
+        }
+
+        internal static void SetCamera(Camera camera)
+        {
+            Window.SetCamera(camera);
         }
     }
 }

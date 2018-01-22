@@ -7,20 +7,21 @@ namespace BehaviourEngine
 {
     public sealed class CameraManager : Behaviour, IUpdatable
     {
-        private readonly Camera            camera;
-        private IOperation                 currentOperation;
+        private readonly Camera                 camera;
+        private IOperation                      currentOperation;
 
-        private GameObject                 currentTarget;
-        private readonly Vector2           originalCameraPosition;
-        private readonly float             originalOrthoSize;
+        private GameObject                      currentTarget;
+        private readonly Vector2                originalCameraPosition;
+        private readonly float                  originalOrthoSize;
 
         //Operations
-        private readonly OperationNone     operationNone;
-        private readonly OperationShake    operationShake;
-        private readonly OperationSeek     operationSeek;
-        private readonly OperationLerpSeek operationLerpSeek;
-        private readonly OperationZoom     operationZoom;
-        private readonly OperationLerpZoom operationLerpZoom;
+        private readonly OperationNone          operationNone;
+        private readonly OperationShake         operationShake;
+        private readonly OperationSeek          operationSeek;
+        private readonly OperationLerpSeek      operationLerpSeek;
+        private readonly OperationZoom          operationZoom;
+        private readonly OperationLerpZoom      operationLerpZoom;
+        private readonly OperationSeekClamped   operationSeekClamped;
 
         private CameraManager(GameObject owner) : base(owner)
         {
@@ -38,6 +39,7 @@ namespace BehaviourEngine
             operationLerpSeek              = new OperationLerpSeek(this);
             operationZoom                  = new OperationZoom(this);
             operationLerpZoom              = new OperationLerpZoom(this);
+            operationSeekClamped              = new OperationSeekClamped(this);
 
             currentOperation               = operationNone;
             originalCameraPosition         = camera.position;
@@ -55,7 +57,7 @@ namespace BehaviourEngine
             return currentOperation;
         }
         public IOperation Seek(GameObject target)
-        {
+        { 
             operationSeek.Init(target);
             currentOperation = operationSeek;
             return currentOperation;
@@ -76,6 +78,13 @@ namespace BehaviourEngine
         {
             operationLerpZoom.Init(zoomRate, duration);
             currentOperation = operationLerpZoom;
+            return currentOperation;
+        }
+
+        public IOperation SeekClamped(GameObject target)
+        {
+            operationSeekClamped.Init(target);
+            currentOperation = operationSeekClamped;
             return currentOperation;
         }
 
@@ -100,7 +109,7 @@ namespace BehaviourEngine
         }
         #endregion
 
-        #region IOperation
+         #region IOperation
         public interface IOperation
         {
             bool Completed { get; }
@@ -292,6 +301,39 @@ namespace BehaviourEngine
                 timer = 0f;
 
                 completed = false;
+            }
+        }
+        public class OperationSeekClamped : IOperation
+        {
+            private bool completed;
+            public bool Completed => completed;
+
+            private readonly CameraManager owner;
+
+            public OperationSeekClamped(CameraManager owner)
+            {
+                this.owner = owner;
+            }
+
+            public void Init(GameObject target)
+            {
+                owner.currentTarget = target;
+                completed = false;
+            }
+
+            //Update
+            public void Execute()
+            {
+                if (owner.currentTarget.Active)
+                {
+                    owner.camera.position.X = MathHelper.Clamp(owner.currentTarget.Transform.Position.X, 11.5f, -40);
+                    Console.WriteLine(owner.camera.position.X);
+                }
+                else
+                {
+                    owner.camera.position = owner.originalCameraPosition;
+                    completed = true;
+                }
             }
         }
         #endregion
