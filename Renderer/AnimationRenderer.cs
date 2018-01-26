@@ -33,7 +33,6 @@ namespace BomberMan
         {
             tile                = new Sprite(1f, 1f);
             tile.position       = position;
-            tile.scale          = Owner.Transform.Scale;
             this.tilesPerRow    = tilesPerRow;
             this.spriteSheet    = spriteSheet;
             this.width          = width;
