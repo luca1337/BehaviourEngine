@@ -16,6 +16,7 @@ namespace BomberMan
         public bool         Show            { get; set; }
         public bool         UpdatePosition  { get; set; }
         public int          RenderOffset    { get; set; }
+        public Vector2 Size => new Vector2(width,height);
 
         private Texture     spriteSheet;
         private Sprite      tile;
