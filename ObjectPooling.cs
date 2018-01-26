@@ -13,7 +13,7 @@ namespace BehaviourEngine
 
         private static Queue<GameObject> objects;
         private static Func<GameObject>  objectsAllocator;
-        private static Queue<Behaviour>  behaviours;
+        private static Queue<Component>  behaviours;
 
         public static void Register(Func<T> allocator, int preallocations = 0)
         {
@@ -67,12 +67,12 @@ namespace BehaviourEngine
                 {
                     GameObject prealloc = allocator.Invoke();
                     objects.Enqueue(prealloc);
-                    for (int j = 0; j < prealloc.Behaviours.Count; j++)
+                    for (int j = 0; j < prealloc.Components.Count; j++)
                     {
                         if (behaviours == null)
-                            behaviours = new Queue<Behaviour>();
+                            behaviours = new Queue<Component>();
 
-                        behaviours.Enqueue(prealloc.Behaviours[j]);
+                        behaviours.Enqueue(prealloc.Components[j]);
                     }
                 }
 
@@ -87,9 +87,9 @@ namespace BehaviourEngine
 
             GameObject toReturn = objects.Count == 0 ? objectsAllocator.Invoke() : objects.Dequeue();
             onGet?.Invoke(toReturn);
-            for (int i = 0; i < toReturn.Behaviours.Count; i++)
+            for (int i = 0; i < toReturn.Components.Count; i++)
             {
-                toReturn.Behaviours[i].Enabled = true;
+                toReturn.Components[i].Enabled = true;
             }
 
             return toReturn;
@@ -101,9 +101,9 @@ namespace BehaviourEngine
                 throw new Exception("Pool is not registered");
 
             onRecycle?.Invoke(toRecycle);
-            for (int i = 0; i < toRecycle.Behaviours.Count; i++)
+            for (int i = 0; i < toRecycle.Components.Count; i++)
             {
-                toRecycle.Behaviours[i].Enabled = false;
+                toRecycle.Components[i].Enabled = false;
             }
             objects.Enqueue(toRecycle);
         }

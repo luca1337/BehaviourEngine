@@ -12,24 +12,24 @@ namespace BehaviourEngine
     {
         private Camera mainCam;
 
-        public MainCamera(float posX, float posY, bool centerPivot = false) : base((int)RenderLayer.Pawn, "main", "Main Camera")
+        public MainCamera(float posX, float posY, bool centerPivot = false) : base(SceneType.main, "Main Camera")
         {
             mainCam = new Camera();
 
             if (centerPivot)
             {
-                float halfOrthoWidth = Engine.Window.OrthoWidth * 0.5f;
-                float halfOrthoHeight = Engine.Window.OrthoHeight * 0.5f;
-                mainCam.pivot = new Vector2(halfOrthoWidth, halfOrthoHeight);
+                //float halfOrthoWidth = Engine.Window.OrthoWidth * 0.5f;
+                //float halfOrthoHeight = Engine.Window.OrthoHeight * 0.5f;
+                //mainCam.pivot = new Vector2(halfOrthoWidth, halfOrthoHeight);
                 mainCam.position += mainCam.pivot;
             }
 
             mainCam.position = new Vector2(posX, posY);
 
-            Engine.SetCamera(mainCam);
+            //Engine.SetCamera(mainCam);
 
             //TODO: replace this with the sceneManager method
-            Engine.Spawn(this);
+            //Engine.Spawn(this);
         }
     }
 }

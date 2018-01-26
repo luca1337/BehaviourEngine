@@ -1,4 +1,4 @@
-﻿using Aiv.Fast2D;
+﻿using EngineBuilder;
 using OpenTK;
 using BehaviourEngine.Interfaces;
 using System;
@@ -7,32 +7,20 @@ namespace BehaviourEngine.Renderer
 {
     public class Tile : GameObject, IPhysical
     {
-        public BoxCollider BoxCollider { get; set; }
         private SpriteRenderer renderer;
-        public Tile(string fileName, Vector2 position) : base((int)RenderLayer.Level, "second", "Tile")
+        public Tile(string fileName, Vector2 position) : base(SceneType.replay, "Tile")
         {
             Transform.Position = position;
-            renderer     = new SpriteRenderer(fileName, this);
-            BoxCollider  = new BoxCollider(renderer.Width, renderer.Height, this);
+            renderer     = new SpriteRenderer(FlyWeight.Get(fileName));
 
-            AddBehaviour<SpriteRenderer>(renderer);
-            AddBehaviour<BoxCollider>(BoxCollider);
+            AddComponent(renderer);
         }
 
-        public void OnIntersect(IPhysical other)
+        public bool Enabled { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public void PhysicsUpdate()
         {
-            if (other is Tile)
-                return;
-
-            //Console.WriteLine(this.ToString() + "Collided with:" + other.ToString());
-        }
-
-        public void OnTriggerEnter(IPhysical other)
-        {
-            if (other is Tile)
-                return;
-
-            Console.WriteLine("wall");
+            throw new NotImplementedException();
         }
     }
 }

@@ -5,7 +5,7 @@ using OpenTK;
 
 namespace BehaviourEngine
 {
-    public sealed class CameraManager : Behaviour, IUpdatable
+    public sealed class CameraManager : Component, IUpdatable
     {
         private readonly Camera                 camera;
         private IOperation                      currentOperation;
@@ -23,15 +23,15 @@ namespace BehaviourEngine
         private readonly OperationLerpZoom      operationLerpZoom;
         private readonly OperationSeekClamped   operationSeekClamped;
 
-        private CameraManager(GameObject owner) : base(owner)
+        private CameraManager()
         {
             camera = new Camera();
 
-            float halfOrthoWidth           = Engine.Window.OrthoWidth * 0.5f;
-            float halfOrthoHeight          = Engine.Window.OrthoHeight * 0.5f;
-            camera.pivot                   = new Vector2(halfOrthoWidth, halfOrthoHeight);
+            //float halfOrthoWidth           = Engine.Window.OrthoWidth * 0.5f;
+            //float halfOrthoHeight          = Engine.Window.OrthoHeight * 0.5f;
+            //camera.pivot                   = new Vector2(halfOrthoWidth, halfOrthoHeight);
             camera.position                += camera.pivot;
-            originalOrthoSize              = Engine.Window.CurrentOrthoGraphicSize;
+            //originalOrthoSize              = Engine.Window.CurrentOrthoGraphicSize;
 
             operationNone                  = new OperationNone();
             operationShake                 = new OperationShake(this);
@@ -90,7 +90,7 @@ namespace BehaviourEngine
 
         #region Singleton
         private static CameraManager instance;
-        public static CameraManager Instance => instance ?? (instance = new CameraManager(null));
+        public static CameraManager Instance => instance ?? (instance = new CameraManager());
 
         #endregion
 
@@ -255,7 +255,7 @@ namespace BehaviourEngine
 
             public void Init(float zoomRate)
             {
-                Engine.Window.SetDefaultOrthographicSize(owner.originalOrthoSize / zoomRate);
+                //Engine.Window.SetDefaultOrthographicSize(owner.originalOrthoSize / zoomRate);
                 completed = false;
             }
         }
@@ -280,9 +280,9 @@ namespace BehaviourEngine
             {
                 float t = timer / maxTime;
                 float currentZoomRate = defaultZoom + additiveZoomRate * t;
-                Engine.Window.SetDefaultOrthographicSize(initialOrthosize / currentZoomRate);
-                Vector2 orthoHalf = new Vector2(Engine.Window.OrthoWidth, Engine.Window.OrthoHeight) * 0.5f;
-                owner.camera.pivot = orthoHalf;
+                //Engine.Window.SetDefaultOrthographicSize(initialOrthosize / currentZoomRate);
+                //Vector2 orthoHalf = new Vector2(Engine.Window.OrthoWidth, Engine.Window.OrthoHeight) * 0.5f;
+                //owner.camera.pivot = orthoHalf;
                 timer += Time.DeltaTime;
 
                 if (timer > maxTime)
@@ -296,7 +296,8 @@ namespace BehaviourEngine
                 else
                     additiveZoomRate = zoomRate < defaultZoom ? zoomRate - defaultZoom : zoomRate;
 
-                initialOrthosize = Engine.Window.CurrentOrthoGraphicSize;
+                //TODO replace with window from engine 
+                //initialOrthosize = Engine.Window.CurrentOrthoGraphicSize;
                 maxTime = duration;
                 timer = 0f;
 

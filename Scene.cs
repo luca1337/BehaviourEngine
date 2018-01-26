@@ -82,9 +82,9 @@ namespace BehaviourEngine
 
                 if (go.Active)
                 {
-                    for (int j = 0; j < go.Behaviours.Count; j++)
+                    for (int j = 0; j < go.Components.Count; j++)
                     {
-                        Behaviour b = go.Behaviours[j];
+                        Component b = go.Components[j];
 
                         if (!b.Enabled)
                             continue;

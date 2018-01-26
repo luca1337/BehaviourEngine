@@ -20,5 +20,13 @@ namespace BehaviourEngine
         //vec2
         public static Vector2 Forward(this Vector2 v) => v = new Vector2(0f, -1f);
         public static Vector2 Right(this Vector2 v) => v = new Vector2(-1f, 0f);
+
+        public static Vector2 PerVector2(this Matrix2 m, Vector2 vector2)
+        {
+            float x = Vector2.Dot(m.Row0, vector2);
+            float y = Vector2.Dot(m.Row1, vector2);
+
+            return new Vector2(x, y);
+        }
     }
 }

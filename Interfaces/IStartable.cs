@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EngineBuilder;
 
 namespace BehaviourEngine
 {
-    public interface IStartable
+    public interface IStartable : IEntity
     {
         void Start();
         bool IsStarted { get; set; }

@@ -1,6 +1,8 @@
-﻿namespace BehaviourEngine.Interfaces
+﻿using EngineBuilder;
+
+namespace BehaviourEngine.Interfaces
 {
-    public interface IUpdatable
+    public interface IUpdatable : IEntity
     {
         void Update();
     }

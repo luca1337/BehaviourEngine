@@ -14,25 +14,25 @@ namespace BehaviourEngine
         //USER CANNOT ACCESS THESE FUNCTIONS
 
         //INTERNAL DICTIONARY TO HOLD ALL THE SCENES 
-        internal static Dictionary<string, Scene> scenes = new Dictionary<string, Scene>(); 
+        internal static Dictionary<SceneType, Scene> scenes = new Dictionary<SceneType, Scene>(); 
 
-        internal static void InternalCreateScene(string name, out Scene value)
+        internal static void InternalCreateScene(SceneType type, out Scene value)
         {
             try
             {
                 value = new Scene();
-                scenes.Add(name, value);
+                scenes.Add(type, value);
             }
             catch(Exception e)
             {
                 throw new Exception(e.Message);
             }
         }
-        internal static Scene InternalGetScene(string name)
+        internal static Scene InternalGetScene(SceneType type)
         {
             try
             {
-                return scenes[name];
+                return scenes[type];
             }
             catch
             {
@@ -49,9 +49,9 @@ namespace BehaviourEngine
         //PUBLIC IMPLEMENTATION
 
         //[Obsolete("this method is not implemented yet.", true)]
-        public static Scene CreateScene(string name)
+        public static Scene CreateScene(SceneType type)
         {
-            InternalCreateScene(name, out Scene res);
+            InternalCreateScene(type, out Scene res);
             return res;
         }
 
@@ -60,9 +60,9 @@ namespace BehaviourEngine
             return SceneManager.InternalGetAllScene();
         }
 
-        public static Scene GetScene(string name)
+        public static Scene GetScene(SceneType type)
         {
-            return SceneManager.InternalGetScene(name);
+            return SceneManager.InternalGetScene(type);
         }
 
         public override string ToString() => $"{scenes.Keys}";

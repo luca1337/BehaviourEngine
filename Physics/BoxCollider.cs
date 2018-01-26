@@ -5,7 +5,7 @@ using System;
 
 namespace BehaviourEngine
 {
-    public class BoxCollider : Behaviour, IDrawable /*, IUpdatable*/
+    public class BoxCollider : Component, IDrawable /*, IUpdatable*/
     {
         public Vector2 Position { get { return mesh.position; } set { mesh.position = value; } }
 
@@ -22,7 +22,7 @@ namespace BehaviourEngine
         //Added
         public bool IsTrigger { get; set; }
 
-        public BoxCollider(float width, float height, GameObject owner) : base(owner)
+        public BoxCollider(float width, float height)
         {
             this.Width  = width;
             this.Height = height;

@@ -9,7 +9,7 @@ namespace BehaviourEngine
 {
     public static class Utils
     {
-        public static bool IsOutOfScreen(Vector2 position) => position.X > Engine.Window.Width || position.X < 0 || position.Y > Engine.Window.Height || position.Y < 0;
+        //public static bool IsOutOfScreen(Vector2 position) => position.X > Engine.Window.Width || position.X < 0 || position.Y > Engine.Window.Height || position.Y < 0;
 
         public static T Clamp<T>(T value, T max, T min) where T : IComparable<T>
         {
