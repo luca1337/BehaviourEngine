@@ -15,7 +15,7 @@ namespace BomberMan
         public bool         Stop            { get; set; }
         public bool         Show            { get; set; }
         public bool         UpdatePosition  { get; set; }
-        public int RenderOffset { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int          RenderOffset    { get; set; }
 
         private Texture     spriteSheet;
         private Sprite      tile;
@@ -28,11 +28,11 @@ namespace BomberMan
         private int         currentIndex;
         private int         index;
 
-        public AnimationRenderer(GameObject owner, Texture spriteSheet, int width, int height, int tilesPerRow,int[] keyFrames, float frameLenght, Vector2 position, bool show, bool stop, Vector2 scale = default(Vector2))
+        public AnimationRenderer(Texture spriteSheet, int width, int height, int tilesPerRow,int[] keyFrames, float frameLenght, Vector2 position, bool show, bool stop, RenderLayer layer)
         {
             tile                = new Sprite(1f, 1f);
             tile.position       = position;
-            tile.scale          = scale;
+            tile.scale          = Owner.Transform.Scale;
             this.tilesPerRow    = tilesPerRow;
             this.spriteSheet    = spriteSheet;
             this.width          = width;

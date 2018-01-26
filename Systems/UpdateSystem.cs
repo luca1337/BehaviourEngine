@@ -1,4 +1,5 @@
-﻿using BehaviourEngine.Interfaces;
+﻿using Aiv.Fast2D.Utils.Input;
+using BehaviourEngine.Interfaces;
 using EngineBuilder;
 
 namespace BehaviourEngine
@@ -9,7 +10,7 @@ namespace BehaviourEngine
         {
             base.Update();
 
-            //Input.Update(Graphics.Instance.Window);
+            Input.Update(Graphics.Instance.Window);
 
             for (int i = 0; i < items.Count; i++)
             {

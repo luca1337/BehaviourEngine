@@ -109,6 +109,7 @@
     <Compile Include="Renderer\TextMesh.cs" />
     <Compile Include="Renderer\Tile.cs" />
     <Compile Include="Physics\Rigidbody2D.cs" />
+    <Compile Include="RenderLayer.cs" />
     <Compile Include="Scene.cs" />
     <Compile Include="SceneManager.cs" />
     <Compile Include="SceneType.cs" />

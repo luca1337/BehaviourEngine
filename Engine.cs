@@ -25,6 +25,7 @@ namespace BehaviourEngine
         {
             engine.Init(window);
         }
+
         public static void Run()
         {
             engine.Run();
