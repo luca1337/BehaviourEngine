@@ -12,10 +12,7 @@ namespace BehaviourEngine
     public class SpriteRenderer : Component, IStartable, IDrawable, IUpdatable
     {
         public Texture Texture;
-        public Sprite Sprite = new Sprite(1f, 1f)
-        {
-            pivot = Vector2.One * 0.5f
-        };
+        public Sprite Sprite = new Sprite(1f, 1f);
 
         protected Transform internalTransform;
 

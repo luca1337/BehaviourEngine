@@ -27,13 +27,12 @@ namespace BehaviourEngine
 
         }
 
-        public GameObject(SceneType sceneTypeName, string name)
+        public GameObject(string name = default(string))
         {
             this.Name           = name;
             this.components = new List<Component>();
             this.Transform = new Transform();
             this.AddComponent(this.Transform);
-            //SceneManager.GetScene(sceneTypeName).AssignToScene(this);
         }
 
         public bool Active;

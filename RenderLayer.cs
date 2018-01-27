@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BomberMan
+namespace BehaviourEngine
 {
     public enum RenderLayer
     {
+        None,
         Collider,
-        Bullet,
-        Gun,
-        Hero,
+        Bomb,
+        BomberMan,
         Background,
     }
 }

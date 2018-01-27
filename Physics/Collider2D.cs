@@ -8,7 +8,7 @@ namespace BehaviourEngine
     {
         public CollisionMode CollisionMode = CollisionMode.Collision;
 
-        internal Transform internalTransform;
+        public Transform internalTransform;
         internal Rigidbody2D rigidbody;
 
         public abstract Vector2 Center { get; }

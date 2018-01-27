@@ -12,7 +12,7 @@ namespace BehaviourEngine
     {
         private Camera mainCam;
 
-        public MainCamera(float posX, float posY, bool centerPivot = false) : base(SceneType.main, "Main Camera")
+        public MainCamera(float posX, float posY, bool centerPivot = false) : base("Main Camera")
         {
             mainCam = new Camera();
 

@@ -8,7 +8,7 @@ namespace BehaviourEngine.Renderer
     public class Tile : GameObject, IPhysical
     {
         private SpriteRenderer renderer;
-        public Tile(string fileName, Vector2 position) : base(SceneType.replay, "Tile")
+        public Tile(string fileName, Vector2 position) : base("Tile")
         {
             Transform.Position = position;
             renderer     = new SpriteRenderer(FlyWeight.Get(fileName));
