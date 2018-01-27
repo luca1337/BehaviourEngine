@@ -12,7 +12,7 @@ namespace BehaviourEngine
     public class SpriteRenderer : Component, IStartable, IDrawable, IUpdatable
     {
         public Texture Texture;
-        public Sprite Sprite = new Sprite(1f, 1f);
+        public Sprite Sprite = new Sprite(50f, 50f);
 
         protected Transform internalTransform;
 
