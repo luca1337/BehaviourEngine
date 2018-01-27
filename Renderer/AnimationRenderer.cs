@@ -10,16 +10,19 @@ using BehaviourEngine.Interfaces;
 
 namespace BomberMan
 {
-    public class AnimationRenderer : Component, IUpdatable, IDrawable
+    public class AnimationRenderer : Component, IStartable, IDrawable, IUpdatable
     {
         public bool         Stop            { get; set; }
         public bool         Show            { get; set; }
         public bool         UpdatePosition  { get; set; }
         public int          RenderOffset    { get; set; }
-        public Vector2 Size => new Vector2(width,height);
+        public Vector2 Size => new Vector2(width, height);
+        protected Transform internalTransform;
+
+        public bool IsStarted { get; set; }
 
         private Texture     spriteSheet;
-        private Sprite      tile;
+        private Sprite      sprite;
         private int         width;
         private int         height;
         private int         tilesPerRow;
@@ -29,42 +32,32 @@ namespace BomberMan
         private int         currentIndex;
         private int         index;
 
-        public AnimationRenderer(Texture spriteSheet, int width, int height, int tilesPerRow,int[] keyFrames, float frameLenght, Vector2 position, bool show, bool stop, RenderLayer layer)
+        public virtual void Start()
         {
-            tile                = new Sprite(1f, 1f);
-            tile.position       = position;
+            internalTransform = Transform.InitInternalTransform(this.Owner);
+        }
+
+        public AnimationRenderer(Texture spriteSheet, int width, int height, int tilesPerRow, int[] keyFrames, float frameLenght, bool show, bool stop) : base()
+        {
+            sprite              = new Sprite(50f, 50f);
             this.tilesPerRow    = tilesPerRow;
             this.spriteSheet    = spriteSheet;
             this.width          = width;
             this.height         = height;
             this.keyFrames      = keyFrames;
             this.frameLenght    = frameLenght;
-            index               = 0;
-            currentIndex        = keyFrames[0];
             this.Stop           = stop;
             this.Show           = show;
-            UpdatePosition      = true;
+            index               = 0;
+            currentIndex        = keyFrames[0];
         }
 
-        public void Draw()
+        public virtual void Update()
         {
-            if (!Show) return;
+            this.sprite.position = internalTransform.Position;
+            this.sprite.Rotation = internalTransform.Rotation;
+            this.sprite.scale = internalTransform.Scale;
 
-            if(UpdatePosition)
-            {
-                tile.scale    = Owner.Transform.Scale;
-                tile.position = Owner.Transform.Position;
-                tile.Rotation = Owner.Transform.Rotation;
-            }
-            
-            int xIndex = currentIndex  % tilesPerRow;
-            int yIndex = currentIndex  / tilesPerRow;
-
-            tile.DrawTexture(spriteSheet, xIndex * width, yIndex * height, width, height);
-        }
-
-        public void Update()
-        {
             if (Stop)
                 return;
 
@@ -81,8 +74,18 @@ namespace BomberMan
             if (index > keyFrames.Length - 1)
             {
                 currentIndex = keyFrames[0];
-                index        = 0;
+                index = 0;
             }
+        }
+
+        public virtual void Draw()
+        {
+            if (!Show) return;
+
+            int xIndex = currentIndex  % tilesPerRow;
+            int yIndex = currentIndex  / tilesPerRow;
+
+            sprite.DrawTexture(spriteSheet, xIndex * width, yIndex * height, width, height);
         }
 
         public void Reset()
