@@ -121,7 +121,7 @@
     <Compile Include="Time.cs" />
     <Compile Include="Timer.cs" />
     <Compile Include="Transform.cs" />
-    <Compile Include="Utils.cs" />
+    <Compile Include="Utils\Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Config\OpenTK.dll.config" />
@@ -130,5 +130,6 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
