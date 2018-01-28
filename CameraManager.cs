@@ -27,11 +27,11 @@ namespace BehaviourEngine
         {
             camera = new Camera();
 
-            //float halfOrthoWidth           = Engine.Window.OrthoWidth * 0.5f;
-            //float halfOrthoHeight          = Engine.Window.OrthoHeight * 0.5f;
-            //camera.pivot                   = new Vector2(halfOrthoWidth, halfOrthoHeight);
-            camera.position                += camera.pivot;
-            //originalOrthoSize              = Engine.Window.CurrentOrthoGraphicSize;
+            float halfOrthoWidth = Graphics.Instance.Window.OrthoWidth * 0.5f;
+            float halfOrthoHeight = Graphics.Instance.Window.OrthoHeight * 0.5f;
+            camera.pivot = new Vector2(halfOrthoWidth, halfOrthoHeight);
+            camera.position += camera.pivot;
+            originalOrthoSize = Graphics.Instance.Window.CurrentOrthoGraphicSize;
 
             operationNone                  = new OperationNone();
             operationShake                 = new OperationShake(this);
