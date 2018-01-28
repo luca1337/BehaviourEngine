@@ -34,6 +34,11 @@ namespace BehaviourEngine
             this.Sprite.scale = internalTransform.Scale;
         }
 
+        public void SetTexture(string p)
+        {
+            Texture = FlyWeight.Get(p);
+        }
+
         public int RenderOffset { get; set; }
         public virtual void Draw()
         {

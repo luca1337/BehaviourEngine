@@ -12,6 +12,7 @@ namespace BehaviourEngine
         Collider,
         Bomb,
         BomberMan,
-        Background,
+        Tile,
+        Powerup
     }
 }
