@@ -39,7 +39,7 @@ namespace BomberMan
 
         public AnimationRenderer(Texture spriteSheet, int width, int height, int tilesPerRow, int[] keyFrames, float frameLenght, bool show, bool stop) : base()
         {
-            sprite              = new Sprite(50f, 50f);
+            sprite              = new Sprite(1f, 1f);
             this.tilesPerRow    = tilesPerRow;
             this.spriteSheet    = spriteSheet;
             this.width          = width;
