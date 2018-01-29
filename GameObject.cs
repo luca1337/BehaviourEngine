@@ -54,6 +54,17 @@ namespace BehaviourEngine
             return components.OfType<T>().FirstOrDefault();
         }
 
+        public Component[] GetAllComponents()
+        {
+            Component[] array = new Component[components.Count];
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = components[i];
+            }
+            return array;
+        }
+
         public static void UpdateScene()
         {
             currentScene.Update();
@@ -63,12 +74,14 @@ namespace BehaviourEngine
         {
             return gameObject.Spawn();
         }
+
         public static GameObject Spawn(GameObject gameObject, Vector2 position)
         {
             gameObject.Transform.Position = position;
 
             return GameObject.Spawn(gameObject);
         }
+
         public static GameObject Spawn(GameObject gameObject, Vector2 position, float eulerRotation)
         {
             gameObject.Transform.Position = position;
@@ -76,6 +89,7 @@ namespace BehaviourEngine
 
             return GameObject.Spawn(gameObject);
         }
+
         private GameObject Spawn()
         {
             this.IsDeployed = true;
@@ -85,7 +99,6 @@ namespace BehaviourEngine
             {
                 Engine.Add(components[i]);
             }
-
             return this;
         }
 
