@@ -92,6 +92,8 @@ namespace BomberMan
         {
             this.currentIndex = 0;
             index = 0;
+            time = 0f;
+            index = 0;
         }
     }
 }
