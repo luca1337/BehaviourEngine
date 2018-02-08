@@ -8,11 +8,11 @@ namespace BehaviourEngine
 {
     public enum RenderLayer
     {
-        None,
+        Gui,
         Collider,
         Bomb,
         BomberMan,
         Tile,
-        Powerup
+        Powerup, 
     }
 }
