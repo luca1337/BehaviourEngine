@@ -30,6 +30,7 @@ namespace BehaviourEngine
         public GameObject(string name = default(string))
         {
             this.Name           = name;
+            this.Active = true;
             this.components = new List<Component>();
             this.Transform = new Transform();
             this.AddComponent(this.Transform);
@@ -93,7 +94,7 @@ namespace BehaviourEngine
         private GameObject Spawn()
         {
             this.IsDeployed = true;
-            this.Active = true;
+            //this.Active = true;
 
             for (int i = 0; i < components.Count; i++)
             {

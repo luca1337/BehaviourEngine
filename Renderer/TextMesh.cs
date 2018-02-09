@@ -27,8 +27,8 @@ namespace BehaviourEngine
             text = "";
             this.texture = texture;
             this.texture.SetNearest();
-            width = texture.Width / 16;
-            height = texture.Height / 16;
+            width = 1; //texture.Width /16;
+            height = 1;            //texture.Height /16;
             horizontalSpacing = width;
             lettersColor = new Dictionary<int, Vector4>();
         }
@@ -121,6 +121,8 @@ namespace BehaviourEngine
             UpdateVertex();
 
             UpdateLettersColors();
+
+
         }
 
         private void RecomputeMeshUVs(string message)
@@ -166,11 +168,12 @@ namespace BehaviourEngine
             UpdateUV();
         }
 
-        public void DrawText(string message)
+        public void UpdateText(string message)
         {
             // do not waste cycle if the string is empty
             if (message.Length == 0)
                 return;
+
             if (message.Length > text.Length)
             {
                 RecomputeMeshVertices(message);
@@ -181,6 +184,10 @@ namespace BehaviourEngine
             }
             text = message;
 
+        }
+
+        public void DrawText()
+        {
             DrawTexture(texture);
         }
     }
