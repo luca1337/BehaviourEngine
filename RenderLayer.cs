@@ -13,6 +13,6 @@ namespace BehaviourEngine
         Bomb,
         BomberMan,
         Tile,
-        Powerup
+        Powerup, 
     }
 }

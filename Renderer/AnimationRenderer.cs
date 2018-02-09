@@ -7,6 +7,7 @@ using Aiv.Fast2D;
 using OpenTK;
 using BehaviourEngine;
 using BehaviourEngine.Interfaces;
+using Aiv.Fast2D.Utils.Input;
 
 namespace BomberMan
 {
@@ -14,7 +15,6 @@ namespace BomberMan
     {
         public bool         Stop            { get; set; }
         public bool         Show            { get; set; }
-        public bool         UpdatePosition  { get; set; }
         public int          RenderOffset    { get; set; }
         public Vector2 Size => new Vector2(width, height);
         protected Transform internalTransform;
