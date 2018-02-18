@@ -74,10 +74,10 @@ namespace BehaviourEngine
         {
             if (sprites != null)
 
-                for (int i = 0; i < sprites.Count; i++)
-                {
-                    sprites[i].DrawSolidColor(0f, 0f, 1f, .5f);
-                }
+            for (int i = 0; i < sprites.Count; i++)
+            {
+                sprites[i].DrawSolidColor(0f, 0f, 1f, .5f);
+            }
         }
     }
 }
