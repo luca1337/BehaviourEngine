@@ -91,6 +91,11 @@ namespace BehaviourEngine
             return GameObject.Spawn(gameObject);
         }
 
+        public GameObject Clone()
+        {
+            return (GameObject)this.MemberwiseClone();
+        }
+
         private GameObject Spawn()
         {
             this.IsDeployed = true;

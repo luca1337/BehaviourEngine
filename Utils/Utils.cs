@@ -38,5 +38,17 @@ namespace BehaviourEngine.Utils
 
             return result;
         }
+
+        public static List<float> GetRandomFloats(int size, float min, float max)
+        {
+            List<float> floatList = new List<float>();
+
+            for (int i = 0; i < size; i++)
+            {
+                floatList.Add(GenerateRandomFloatInRange(min, max));
+            }
+
+            return floatList;
+        }
     }
 }
