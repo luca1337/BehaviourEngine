@@ -13,9 +13,7 @@ namespace BehaviourEngine
     {
         public uint Layer = LayerManager.DefaultLayer;
         public Transform            Transform       { get; }
-        public GameObject           Parent          { get; set; }
         public string               Name            { get; }
-        public int                  RenderOffset    { get; }
         public static Scene         currentScene    { get; set; }
         public bool IsDeployed       { get; private set; }
         public List<Component>      Components
