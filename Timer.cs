@@ -12,11 +12,11 @@ public class Timer
         this.timeLimit = timeLimit;
     }
 
-    public void Update()
+    public void Update(bool restart)
     {
         currentTime += Time.DeltaTime;
         if (currentTime > timeLimit)
-            Stop(false);
+            Stop(restart);
     }
 
     public void Start()
