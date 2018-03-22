@@ -19,10 +19,11 @@ public class Timer
             Stop(restart);
     }
 
-    public void Start()
+    public void Start(bool fromZero)
     {
         IsActive = true;
-      //  currentTime = 0f;
+        if(fromZero)
+          currentTime = 0f;
     }
 
     public bool IsOver()
