@@ -1,13 +1,12 @@
 ﻿using BehaviourEngine;
 
-
-
 public class Timer
 {
     private float timeLimit;
     public bool IsActive { get; private set; }
     public float currentTime;
 
+    public float MaxTime => timeLimit;
     public Timer(float timeLimit)
     {
         this.timeLimit = timeLimit;
@@ -17,12 +16,12 @@ public class Timer
     {
         currentTime += Time.DeltaTime;
         if (currentTime > timeLimit)
-            Stop();
+            Stop(false);
     }
 
     public void Start()
     {
-        IsActive    = true;
+        IsActive = true;
         currentTime = 0f;
     }
 
@@ -31,9 +30,11 @@ public class Timer
         return currentTime > timeLimit;
     }
 
-    public void Stop()
+    public void Stop(bool restart)
     {
-        currentTime = 0f;
-        IsActive    = false;
+        IsActive = false;
+
+        if (restart)
+            currentTime = 0f;
     }
 }

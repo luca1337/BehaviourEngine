@@ -8,6 +8,7 @@ namespace BehaviourEngine.Interfaces
 {
     public interface IState
     {
+        //Don' t do the Update in the enter point of the state
         void OnStateEnter();
         void OnStateExit();
         IState OnStateUpdate();
