@@ -22,7 +22,7 @@ public class Timer
     public void Start()
     {
         IsActive = true;
-        currentTime = 0f;
+      //  currentTime = 0f;
     }
 
     public bool IsOver()
