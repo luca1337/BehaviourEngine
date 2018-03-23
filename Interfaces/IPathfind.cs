@@ -9,7 +9,7 @@ namespace BehaviourEngine.Interfaces
     public interface IPathfind
     {
         List<Node> CurrentPath { get; set; }
-        void ComputePath<T>(T item, int x, int y) where T : IMap;
+        void ComputePath<T>(T path, int x, int y) where T : IMap;
         bool Computed { get; }
     }
 }

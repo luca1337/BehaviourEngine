@@ -255,7 +255,7 @@ namespace BehaviourEngine
 
             public void Init(float zoomRate)
             {
-                //Engine.Window.SetDefaultOrthographicSize(owner.originalOrthoSize / zoomRate);
+                Graphics.Instance.Window.SetDefaultOrthographicSize(owner.originalOrthoSize / zoomRate);
                 completed = false;
             }
         }
@@ -280,9 +280,9 @@ namespace BehaviourEngine
             {
                 float t = timer / maxTime;
                 float currentZoomRate = defaultZoom + additiveZoomRate * t;
-                //Engine.Window.SetDefaultOrthographicSize(initialOrthosize / currentZoomRate);
-                //Vector2 orthoHalf = new Vector2(Engine.Window.OrthoWidth, Engine.Window.OrthoHeight) * 0.5f;
-                //owner.camera.pivot = orthoHalf;
+                Graphics.Instance.Window.SetDefaultOrthographicSize(initialOrthosize / currentZoomRate);
+                Vector2 orthoHalf = new Vector2(Graphics.Instance.Window.OrthoWidth, Graphics.Instance.Window.OrthoHeight) * 0.5f;
+                owner.camera.pivot = orthoHalf;
                 timer += Time.DeltaTime;
 
                 if (timer > maxTime)
@@ -296,8 +296,7 @@ namespace BehaviourEngine
                 else
                     additiveZoomRate = zoomRate < defaultZoom ? zoomRate - defaultZoom : zoomRate;
 
-                //TODO replace with window from engine 
-                //initialOrthosize = Engine.Window.CurrentOrthoGraphicSize;
+                initialOrthosize = Graphics.Instance.Window.CurrentOrthoGraphicSize;
                 maxTime = duration;
                 timer = 0f;
 
