@@ -10,7 +10,6 @@ namespace BehaviourEngine
     {
         private static Queue<T> instances;
         private static Func<T> allocator;
-        private static int count;
 
         public static void Register(Func<T> allocator, int capacity = 4)
         {

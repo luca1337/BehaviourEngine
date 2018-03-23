@@ -296,6 +296,7 @@ namespace BehaviourEngine
                 else
                     additiveZoomRate = zoomRate < defaultZoom ? zoomRate - defaultZoom : zoomRate;
 
+                //TODO replace with window from engine 
                 initialOrthosize = Graphics.Instance.Window.CurrentOrthoGraphicSize;
                 maxTime = duration;
                 timer = 0f;

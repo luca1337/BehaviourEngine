@@ -12,11 +12,10 @@ namespace BehaviourEngine
     public class GameObject
     {
         public uint Layer = LayerManager.DefaultLayer;
-        public Transform            Transform       { get; }
-        public string               Name            { get; }
-        public static Scene         currentScene    { get; set; }
-        public bool IsDeployed       { get; private set; }
-        public List<Component>      Components
+        public Transform Transform { get; }
+        public string Name { get; }
+        public bool IsDeployed { get; private set; }
+        public List<Component> Components
         {
             get
             {
@@ -27,10 +26,10 @@ namespace BehaviourEngine
 
         public GameObject(string name = default(string))
         {
-            this.Name           = name;
-            this.components     = new List<Component>();
-            this.Transform      = new Transform();
-            this.Active         = true;
+            this.Name = name;
+            this.components = new List<Component>();
+            this.Transform = new Transform();
+            this.Active = true;
             this.AddComponent(this.Transform);
         }
 
@@ -62,11 +61,6 @@ namespace BehaviourEngine
                 array[i] = components[i];
             }
             return array;
-        }
-
-        public static void UpdateScene()
-        {
-            currentScene.Update();
         }
 
         public static GameObject Spawn(GameObject gameObject)
@@ -105,6 +99,6 @@ namespace BehaviourEngine
             return this;
         }
 
-        public override string ToString( ) => $" { Name } ";
+        public override string ToString() => $" { Name } ";
     }
 }
