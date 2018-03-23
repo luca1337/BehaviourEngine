@@ -50,10 +50,6 @@
     <Reference Include="aiv-vorbis, Version=1.0.6195.38242, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\BomberMan2D\packages\Aiv.Vorbis.0.3.0\lib\net40\aiv-vorbis.dll</HintPath>
     </Reference>
-    <Reference Include="ComponentInternal, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\ComponentInternal.dll</HintPath>
-    </Reference>
     <Reference Include="EngineBuilder, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\EngineBuilder.dll</HintPath>
@@ -132,6 +128,7 @@
   <ItemGroup>
     <None Include="Config\OpenTK.dll.config" />
     <None Include="Config\packages.config" />
+    <None Include="OpenTK.dll.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
