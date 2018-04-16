@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Aiv.Fast2D;
-using BehaviourEngine.Interfaces;
+using BehaviourEngine;
 using OpenTK;
 
 namespace BehaviourEngine

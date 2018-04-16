@@ -1,9 +1,9 @@
 ﻿using EngineBuilder;
 using OpenTK;
-using BehaviourEngine.Interfaces;
+using BehaviourEngine;
 using System;
 
-namespace BehaviourEngine.Renderer
+namespace BehaviourEngine
 {
     public class Tile : GameObject, IPhysical
     {

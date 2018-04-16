@@ -1,10 +1,11 @@
-﻿using System;
+﻿using BehaviourEngine.Pathfinding;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BehaviourEngine.Interfaces
+namespace BehaviourEngine
 {
     public interface IPathfind
     {

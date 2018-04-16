@@ -1,7 +1,7 @@
 ﻿using System;
 using EngineBuilder;
 
-namespace BehaviourEngine.Interfaces
+namespace BehaviourEngine
 {
     public interface IPhysical : IEntity
     {

@@ -1,7 +1,7 @@
 ﻿using Aiv.Fast2D;
 using System.Linq;
 using EngineBuilder;
-using BehaviourEngine.Interfaces;
+using BehaviourEngine;
 
 namespace BehaviourEngine
 {

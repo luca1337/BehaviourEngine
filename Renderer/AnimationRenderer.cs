@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Aiv.Fast2D;
+﻿using Aiv.Fast2D;
 using OpenTK;
-using BehaviourEngine;
-using BehaviourEngine.Interfaces;
-using Aiv.Fast2D.Utils.Input;
 
-namespace BomberMan
+namespace BehaviourEngine
 {
     public class AnimationRenderer : Component, IStartable, IDrawable, IUpdatable
     {

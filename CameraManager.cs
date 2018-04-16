@@ -1,6 +1,6 @@
 ﻿using System;
 using Aiv.Fast2D;
-using BehaviourEngine.Interfaces;
+using BehaviourEngine;
 using OpenTK;
 
 namespace BehaviourEngine

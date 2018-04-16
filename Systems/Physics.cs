@@ -1,9 +1,8 @@
 ﻿using OpenTK;
 using System;
 using System.Collections.Generic;
-
 using EngineBuilder;
-using BehaviourEngine.Interfaces;
+using BehaviourEngine;
 
 namespace BehaviourEngine
 {

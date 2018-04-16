@@ -1,5 +1,5 @@
 ﻿using Aiv.Fast2D.Utils.Input;
-using BehaviourEngine.Interfaces;
+using BehaviourEngine;
 using EngineBuilder;
 
 namespace BehaviourEngine

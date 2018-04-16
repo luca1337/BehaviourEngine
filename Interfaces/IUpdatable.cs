@@ -1,6 +1,6 @@
 ﻿using EngineBuilder;
 
-namespace BehaviourEngine.Interfaces
+namespace BehaviourEngine
 {
     public interface IUpdatable : IEntity
     {

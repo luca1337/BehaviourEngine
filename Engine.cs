@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Aiv.Fast2D;
 using Aiv.Fast2D.Utils.Input;
-using BehaviourEngine.Interfaces;
+using BehaviourEngine;
 
 namespace BehaviourEngine
 {

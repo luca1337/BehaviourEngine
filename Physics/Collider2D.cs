@@ -1,5 +1,5 @@
 ﻿using System;
-using BehaviourEngine.Interfaces;
+using BehaviourEngine;
 using OpenTK;
 
 namespace BehaviourEngine

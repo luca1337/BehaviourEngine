@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenTK;
 using Aiv.Fast2D;
-using BehaviourEngine.Interfaces;
+using BehaviourEngine;
 
 namespace BehaviourEngine
 {
