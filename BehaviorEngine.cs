@@ -27,7 +27,7 @@ namespace BehaviourEngine
             this.Add(startSystem, updateSystem, Physics.Instance, Graphics.Instance);
 
             //box2d rendering debug
-            FlyWeight.Add("Box2D", "Assets/Box2D.dat");
+         //   FlyWeight.Add("Box2D", "Assets/Box2D.dat");
         }
     }
 }
