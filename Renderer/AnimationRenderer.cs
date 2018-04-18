@@ -8,7 +8,8 @@ namespace BehaviourEngine
         public bool         Stop            { get; set; }
         public bool         Show            { get; set; }
         public int          RenderOffset    { get; set; }
-        public Vector2 Size => new Vector2(width, height);
+        public Sprite Sprite => sprite;
+        public Vector2 Size  => new Vector2(width, height);
         protected Transform internalTransform;
 
         public bool IsStarted { get; set; }
@@ -44,6 +45,11 @@ namespace BehaviourEngine
             currentIndex        = keyFrames[0];
         }
 
+        public void SetCurrentIndex(int currentKeyFrame)
+        {
+            currentIndex = keyFrames[currentKeyFrame];
+        }
+
         public virtual void Update()
         {
             this.sprite.position = internalTransform.Position;
@@ -70,6 +76,11 @@ namespace BehaviourEngine
             }
         }
 
+        public void SetFlip(bool flipX, bool flipY)
+        {
+            sprite.FlipX = flipX;
+            sprite.FlipY = flipY;
+        }
         public virtual void Draw()
         {
             if (!Show) return;
