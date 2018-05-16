@@ -28,5 +28,10 @@ namespace BehaviourEngine
         {
             return textures.ContainsKey(toGet) ? textures[toGet] : null;
         }
+
+        public static void GenerateFromFile(string filename)
+        {
+            TextureHelper.GenerateDecompressedTextureFromFile(filename, "outputd", "dat");
+        }
     }
 }
