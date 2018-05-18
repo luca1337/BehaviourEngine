@@ -76,7 +76,6 @@
     <Compile Include="AudioManager.cs" />
     <Compile Include="BehaviorEngine.cs" />
     <Compile Include="Component.cs" />
-    <Compile Include="Generator.cs" />
     <Compile Include="ISystem.cs" />
     <Compile Include="MainCamera.cs" />
     <Compile Include="CameraManager.cs" />
